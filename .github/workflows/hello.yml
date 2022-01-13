@@ -15,4 +15,4 @@ jobs:
       - name: Step 1
         uses: actions/checkout@v2
       - name: Step 2
-        run: echo "Hello Arijit"
+        run: echo "Hello Arijitt"
