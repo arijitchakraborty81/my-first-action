@@ -36,5 +36,34 @@ jobs:
         run: echo "Test type::$TEST_TYPE_VARIABLE"
       - if: env.TEST_ENV_VARIABLE == 'DEV' && (env.TEST_TYPE_VARIABLE == 'PAYROLL'
             || env.TEST_TYPE_VARIABLE == 'BOTH')
-        name: Running Dev environment
-        run: echo "I am in Dev"
+        name: Run integration tests in Dev environment for test type PAYROLL/BOTH
+        run: echo "I am in Dev PAYROLL/BOTH"
+      - if: env.TEST_ENV_VARIABLE == 'DEV' && (env.TEST_TYPE_VARIABLE == 'ADDRESSCLEANSE'
+            || env.TEST_TYPE_VARIABLE == 'BOTH')
+        name: Run integration tests in Dev environment for test type ADDRESSCLEANSE/BOTH
+        run: echo "I am in Dev ADDRESSCLEANSE/BOTH"
+      - if: env.TEST_ENV_VARIABLE == 'QA' && (env.TEST_TYPE_VARIABLE == 'PAYROLL'
+            || env.TEST_TYPE_VARIABLE == 'BOTH')
+        name: Run integration tests in QA environment for test type PAYROLL/BOTH
+        run: echo "I am in QA PAYROLL/BOTH"
+      - if: env.TEST_ENV_VARIABLE == 'QA' && (env.TEST_TYPE_VARIABLE == 'ADDRESSCLEANSE'
+            || env.TEST_TYPE_VARIABLE == 'BOTH')
+        name: Run integration tests in QA environment for test type ADDRESSCLEANSE/BOTH
+        run: echo "I am in QA ADDRESSCLEANSE/BOTH"
+      - if: env.TEST_ENV_VARIABLE == 'STAGE' && (env.TEST_TYPE_VARIABLE == 'PAYROLL'
+            || env.TEST_TYPE_VARIABLE == 'BOTH')
+        name: Run integration tests in STAGE environment for test type PAYROLL/BOTH
+        run: echo "I am in STAGE PAYROLL/BOTH"
+      - if: env.TEST_ENV_VARIABLE == 'STAGE' && (env.TEST_TYPE_VARIABLE == 'ADDRESSCLEANSE'
+            || env.TEST_TYPE_VARIABLE == 'BOTH')
+        name: Run integration tests in STAGE environment for test type ADDRESSCLEANSE/BOTH
+        run: echo "I am in STAGE ADDRESSCLEANSE/BOTH"
+      - if: env.TEST_ENV_VARIABLE == 'PROD' && (env.TEST_TYPE_VARIABLE == 'PAYROLL'
+            || env.TEST_TYPE_VARIABLE == 'BOTH')
+        name: Run integration tests in PROD environment for test type PAYROLL/BOTH
+        run: echo "I am in PROD PAYROLL/BOTH"
+      - if: env.TEST_ENV_VARIABLE == 'PROD' && (env.TEST_TYPE_VARIABLE == 'ADDRESSCLEANSE'
+            || env.TEST_TYPE_VARIABLE == 'BOTH')
+        name: Run integration tests in PROD environment for test type ADDRESSCLEANSE/BOTH
+        run: echo "I am in PROD ADDRESSCLEANSE/BOTH"
+      
