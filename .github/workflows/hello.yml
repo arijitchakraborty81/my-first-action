@@ -23,15 +23,18 @@ on:
 
 jobs:
   daily-cron-integration-test:
+    env:
+      TEST_ENV_VARIABLE: ${{ github.event.inputs.environment }}
+      TEST_TYPE_VARIABLE: ${{ github.event.inputs.test_type }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Print Selected environment
-        run: echo "Environment::${{ github.event.inputs.environment }}"
+        run: echo "Environment::${{ env.TEST_ENV_VARIABLE }}"
       - name: Print Selected test type
-        run: echo "Test type::${{ github.event.inputs.test_type }}"
-      - if: github.event.inputs.environment == 'QA'
+        run: echo "Test type::${{ env.TEST_TYPE_VARIABLE }}"
+      - if: ${TEST_ENV_VARIABLE} == 'QA'
         name: Running QA environment
         run: echo "I am in QA"
       - name: Goodbye
