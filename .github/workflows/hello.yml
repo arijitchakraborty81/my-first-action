@@ -13,6 +13,13 @@ on:
           - QA
           - STAGE
           - PROD
+      test_type:
+        type: choice
+        description: Select a test type
+        options:
+          - PAYROLL
+          - ADDRESSCLEANSE
+          - BOTH
 
 jobs:
   daily-cron-integration-test:
@@ -22,5 +29,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Selected environment
         run: echo "Environment::${{ github.event.inputs.environment }}"
+      - name: Selected environment
+        run: echo "Test type::${{ github.event.inputs.test_type }}"
       - name: Goodbye
         run: echo "Bye Arijit"
