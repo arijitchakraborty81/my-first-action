@@ -34,7 +34,7 @@ jobs:
         run: echo "Environment::${{ env.TEST_ENV_VARIABLE }}"
       - name: Print Selected test type
         run: echo "Test type::${{ env.TEST_TYPE_VARIABLE }}"
-      - if: ${TEST_ENV_VARIABLE} == 'QA'
+      - if: ${{env.TEST_ENV_VARIABLE}} == 'QA'
         name: Running QA environment
         run: echo "I am in QA"
       - name: Goodbye
