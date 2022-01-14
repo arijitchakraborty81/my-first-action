@@ -27,9 +27,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Selected environment
+      - name: Print Selected environment
         run: echo "Environment::${{ github.event.inputs.environment }}"
-      - name: Selected environment
+      - name: Print Selected test type
         run: echo "Test type::${{ github.event.inputs.test_type }}"
       - name: Goodbye
         run: echo "Bye Arijit"
