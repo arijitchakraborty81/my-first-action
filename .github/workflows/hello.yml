@@ -1,8 +1,8 @@
 name: Daily-Cron-Integration-Test
 on:
-  pull_request:
-    branches:
-      - master
+  # pull_request:
+    # branches:
+      # - master
   workflow_dispatch:
     inputs:
       environment:
@@ -34,6 +34,7 @@ jobs:
         run: echo "Environment::$TEST_ENV_VARIABLE"
       - name: Print Selected test type
         run: echo "Test type::$TEST_TYPE_VARIABLE"
-      - if: env.TEST_ENV_VARIABLE == 'QA' && env.TEST_TYPE_VARIABLE == 'BOTH'
-        name: Running QA environment
-        run: echo "I am in QA"
+      - if: env.TEST_ENV_VARIABLE == 'DEV' && (env.TEST_TYPE_VARIABLE == 'PAYROLL'
+            || env.TEST_TYPE_VARIABLE == 'BOTH')
+        name: Running Dev environment
+        run: echo "I am in Dev"
