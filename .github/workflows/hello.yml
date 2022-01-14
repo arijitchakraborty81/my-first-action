@@ -31,5 +31,8 @@ jobs:
         run: echo "Environment::${{ github.event.inputs.environment }}"
       - name: Print Selected test type
         run: echo "Test type::${{ github.event.inputs.test_type }}"
+      - if: github.event.inputs.environment == 'QA'
+        name: Running QA environment
+        run: echo "I am in QA"
       - name: Goodbye
         run: echo "Bye Arijit"
