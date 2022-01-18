@@ -65,5 +65,5 @@ jobs:
       - if: env.TEST_ENV_VARIABLE == 'PROD' && (env.TEST_TYPE_VARIABLE == 'ADDRESSCLEANSE'
             || env.TEST_TYPE_VARIABLE == 'BOTH')
         name: Run integration tests in PROD environment for test type ADDRESSCLEANSE/BOTH
-        run: echo "I am in PROD ADDRESSCLEANSE/BOTH"
+        run: echo "I am in PROD ADDRESSCLEAN/BOTH"
       
