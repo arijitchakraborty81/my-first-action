@@ -20,12 +20,18 @@ on:
           - PAYROLL
           - ADDRESSCLEANSE
           - BOTH
+      commit_sha:
+        type: text
+        description: Git Checkout SHA
+        required: true
+        
 
 jobs:
   daily-cron-integration-test:
     env:
       TEST_ENV_VARIABLE: ${{ github.event.inputs.environment }}
       TEST_TYPE_VARIABLE: ${{ github.event.inputs.test_type }}
+      COMMIT_SHA: ${{ github.event.inputs.commit_sha }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -34,6 +40,8 @@ jobs:
         run: echo "Environment::$TEST_ENV_VARIABLE"
       - name: Print Selected test type
         run: echo "Test type::$TEST_TYPE_VARIABLE"
+      - name: Print SHA commit id
+        run: echo "commit id::$COMMIT_SHA"
       - if: env.TEST_ENV_VARIABLE == 'DEV' && (env.TEST_TYPE_VARIABLE == 'PAYROLL'
             || env.TEST_TYPE_VARIABLE == 'BOTH')
         name: Run integration tests in Dev environment for test type PAYROLL/BOTH
