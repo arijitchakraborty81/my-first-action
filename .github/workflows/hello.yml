@@ -21,7 +21,7 @@ on:
           - ADDRESSCLEANSE
           - BOTH
       commit_sha:
-        type: text
+        type: string
         description: Git Checkout SHA
         required: true
         
